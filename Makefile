@@ -1,10 +1,8 @@
-THEOS_DEVICE_IP = 192.168.1.4
+ARCHS = arm64 arm64e # Make tweak compatible with iPhone 5s - 11 
 
-ARCHS = arm64 arm64e
+DEBUG = 0 # Strip debug symbols from the binary and remove _debug_ from the package name
 
-DEBUG = 0
-
-FINALPACKAGE = 1
+FINALPACKAGE = 1 # Set this to 1 to remove -1 from build number (1.0.1-1 -> 1.0.1)
 
 include $(THEOS)/makefiles/common.mk
 
@@ -15,5 +13,5 @@ NoSettingsChevrons_CFLAGS = -fobjc-arc
 
 include $(THEOS_MAKE_PATH)/tweak.mk
 
-after-install::
-	install.exec "killall -9 Preferences"
+after-install:: # Use this if you want more customization when tweak is installed, for tweaks that require a respring, I suggest using "sbreload" in place of "killall -9 ProcessName"
+	install.exec "killall -9 Preferences" # Kill Settings, no need to respring
