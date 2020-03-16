@@ -1,0 +1,9 @@
+Package: com.mtac.nosettingschevrons
+Name: NoSettingsChevrons
+Depends: mobilesubstrate
+Version: 1.0.1
+Architecture: iphoneos-arm
+Description: Remove the chevron view from 
+Maintainer: MTAC
+Author: MTAC
+Section: Tweaks
