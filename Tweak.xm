@@ -1,15 +1,15 @@
-@interface PSTableCell
-- (void)setForceHideDisclosureIndicator:(BOOL)arg1;
+@interface PSTableCell // Declare header for PSTableCell
+- (void)setForceHideDisclosureIndicator:(BOOL)arg1; // Add the method used
 @end
 
-%hook PSTableCell
+%hook PSTableCell // Hook PSTableCell class
 
-- (void)layoutSubviews {
+- (void)layoutSubviews { // Don't use layoutSubviews normally, but in this case it is fine as it doesn't add any views, just calls a setter method
 
-	%orig;
+	%orig; // Call the original method
 
-	[self setForceHideDisclosureIndicator:true];
+	[self setForceHideDisclosureIndicator:true]; // Use the setter to hide the disclosure indicators (chevrons)
 
 }
 
-%end
+%end // End your hook
